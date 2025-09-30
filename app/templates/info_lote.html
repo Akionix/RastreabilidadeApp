@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Informações do Lote #{{ lote.id }}{% endblock %}
+
+{% block content %}
+<div class="card shadow-lg border-0">
+    <div class="card-header text-center">
+        <h2>Informações de Rastreabilidade</h2>
+    </div>
+    <div class="card-body p-lg-5">
+        {% if lote and lote.propriedade and lote.propriedade.produtor %}
+            <div class="row align-items-center">
+                <!-- Coluna com as informações -->
+                <div class="col-md-7">
+                    <h3 class="mb-4">
+                        <span class="badge bg-success me-2">Lote #{{ lote.id }}</span>
+                    </h3>
+                    
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <strong>Produtor:</strong> {{ lote.propriedade.produtor.nome }}
+                        </li>
+                        <li class="list-group-item">
+                            <strong>CPF/CNPJ:</strong> {{ lote.propriedade.produtor.documento }}
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Propriedade:</strong> {{ lote.propriedade.nome_propriedade }}
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Origem:</strong> {{ lote.propriedade.endereco }}, {{ lote.propriedade.cidade }}
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Data da Colheita:</strong> {{ lote.data_colheita.strftime('%d/%m/%Y') }}
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Validade Recomendada:</strong> {{ lote.validade.strftime('%d/%m/%Y') }}
+                        </li>
+                    </ul>
+
+                    <h5 class="mt-4 section-title">Boas Práticas Utilizadas:</h5>
+                    <p class="text-secondary">{{ lote.boas_praticas | nl2br }}</p>
+                </div>
+                
+                <!-- Coluna com o QR Code -->
+                <div class="col-md-5 text-center mt-4 mt-md-0">
+                    <div class="qr-container">
+                        <img src="{{ url_for('static', filename='qrcodes/' + lote.qr_code_path) }}" 
+                             alt="QR Code do Lote {{ lote.id }}" 
+                             class="img-fluid rounded">
+                    </div>
+                    <!-- LINHA CORRIGIDA -->
+                    <p class="text-secondary mt-2"><small>Escaneado em: {{ hora_atual.strftime('%d/%m/%Y %H:%M') }}</small></p>
+                </div>
+            </div>
+        {% else %}
+            <div class="alert alert-danger text-center" role="alert">
+                <h2>Lote não encontrado!</h2>
+                <p>As informações para este lote não estão disponíveis. Verifique o QR Code e tente novamente.</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
