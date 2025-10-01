@@ -3,11 +3,11 @@
 {% block title %}Entrar{% endblock %}
 
 {% block content %}
-<div class="login-container d-flex align-items-center justify-content-center vh-100">
+<div class="login-container d-flex flex-column align-items-center justify-content-center">
     <div class="login-card shadow-lg border-0 rounded-4">
         <div class="card-body p-5">
             <div class="text-center mb-4">
-                <i class="fa-solid fa-leaf-ॉग display-3 text-success mb-3"></i> {# Ícone no topo do formulário #}
+                <i class="fa-solid fa-seedling display-3 text-success mb-3"></i> {# Ícone no topo do formulário #}
                 <h2 class="card-title fw-bold">Bem-vindo(a) de Volta!</h2>
                 <p class="text-muted">Acesse sua conta para continuar.</p>
             </div>
@@ -58,38 +58,41 @@
 </div>
 
 <style>
-    /* Estilos para centralizar o card de login na tela */
+    /* Estilos para o container de login */
     .login-container {
-        min-height: calc(100vh - 120px - 60px); /* Ajusta para a altura do header e footer */
-        margin-top: -120px; /* Compensa o margin-top do main */
-        margin-bottom: -60px; /* Compensa a altura do footer */
-        background-color: var(--background-secondary); /* Cor de fundo suave */
+        /* Ajusta a altura para preencher o espaço restante entre o navbar e o footer */
+        /* Considera que o navbar tem uma altura aproximada de 60px-80px e o footer de 60px */
+        min-height: calc(100vh - 80px - 60px); /* Exemplo: 80px para navbar, 60px para footer */
+        padding-top: 2rem; /* Espaçamento superior */
+        padding-bottom: 2rem; /* Espaçamento inferior */
+        background-color: var(--background-secondary, #f8f9fa); /* Cor de fundo suave */
+        margin-top: 120px; /* Adiciona o margin-top de volta aqui para empurrar o conteúdo abaixo do navbar fixo */
     }
 
     /* Estilo do card de login */
     .login-card {
         max-width: 450px;
         width: 100%;
-        background-color: var(--surface);
-        border-radius: var(--border-radius-xl); /* Borda mais arredondada */
-        box-shadow: var(--shadow-xl); /* Sombra mais pronunciada */
+        background-color: var(--surface, #ffffff);
+        border-radius: var(--border-radius-xl, 1rem); /* Borda mais arredondada */
+        box-shadow: var(--shadow-xl, 0 1rem 3rem rgba(0, 0, 0, 0.175)); /* Sombra mais pronunciada */
     }
 
     /* Estilos para os inputs e grupos de input */
     .input-group-text {
-        background-color: var(--neutral-100);
+        background-color: var(--neutral-100, #e9ecef);
         border-right: none;
-        color: var(--text-secondary);
-        border-color: var(--neutral-300);
+        color: var(--text-secondary, #6c757d);
+        border-color: var(--neutral-300, #dee2e6);
     }
 
     .form-control-lg {
         border-left: none;
-        border-color: var(--neutral-300);
+        border-color: var(--neutral-300, #dee2e6);
     }
 
     .form-control-lg:focus {
-        border-color: var(--primary-color-dark);
+        border-color: var(--primary-color-dark, #28a745);
         box-shadow: 0 0 0 0.25rem rgba(52, 199, 89, 0.25);
     }
 
