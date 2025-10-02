@@ -1,153 +1,89 @@
 {% extends "base.html" %}
 
-{% block title %}Lote Registrado com Sucesso!id }}</span> foi criado e está pronto para rastreabilidade
-    </p>
-</div>
-
-<!-- Card Principal com QR Code -->
-<div class="{% endblock %}
+{% block title %}Lote Registrado com Sucesso!{% endblock %}
 
 {% block content %}
 <!-- Header de Sucesso -->
 <div class="success-header text-center mb-5">
-    <div classcard main-success-card shadow-="success-animation">
-        <lg border-0">
-    <div class="card-header text-div class="checkmark-circle">
+    <div class="success-animation">
+        <div class="checkmark-circle">
             <div class="checkmark"></div>
         </div>
     </div>
-    center">
-        <div class="
-    <h1 class="success-title">Lheader-content">
-            <span class="header-icon">🎯</span>
-            <h3 class="header-title">QR Code Gerado</h3>ote Registrado com Sucesso!</h1>
+    <h1 class="success-title">Lote Registrado com Sucesso!</h1>
     <p class="success-subtitle">
-        Lote <span class="lote
-            <p class="header-subtitle">Pronto para impressão e uso na embalagem</-number">#{{ lote.id }}</span> foi criado e está pronto para rastreabilidade
-p>
-        </div>
-    </div>
-    
-        </p>
+        Lote <span class="lote-number">#{{ lote.id }}</span> foi criado e está pronto para rastreabilidade
+    </p>
 </div>
 
 <!-- Card Principal com QR Code -->
-<div class="card main-success-card shadow-lg border-0"><div class="card-body">
-        <div class="row align-items-center
-    <div class="card-">
-            <!-- QR Code -->
-header text-center">
+<div class="card main-success-card shadow-lg border-0">
+    <div class="card-header text-center">
         <div class="header-content">
             <span class="header-icon">🎯</span>
-            <div class="col-lg-5">
-                <div class="qr-display-container">
-                    <div class            <h3 class="header-title">QR Code Gerado</h3>
-            <p class="header-subtitle">Pronto para="qr-wrapper">
-                        <img src="{{ url_for('static', filename='qrcodes/' + lote.qr_ impressão e uso na embalagem</p>
+            <h3 class="header-title">QR Code Gerado</h3>
+            <p class="header-subtitle">Pronto para impressão e uso na embalagem</p>
         </div>
     </div>
-    
-    <code_path) }}" 
-                             alt="QR Code do Lote {{ lote.id }}" 
-                             classdiv class="card-body">
+
+    <div class="card-body">
         <div class="row align-items-center">
-            <!-- QR Code -->
-            ="qr-image"
-                             id="qrImage">
-                    </div>
-                    
-                    <<div class="col-lg-5">
+            <!-- QR Code Display -->
+            <div class="col-lg-5">
                 <div class="qr-display-container">
-                    div class="qr-actions">
-                        <button class="btn btn-outline-primary btn-sm" onclick="downloadQR()"><div class="qr-wrapper">
-                        <img src="{{ url_for('static', filename='qrc
-                            <span style="margin-right: 6px;">💾</span>
-                            Baixarodes/' + lote.qr_code_path) }}" 
-                             alt="QR Code do Lote {{ lote.id }}"  QR Code
-                        </button>
-                        <button class="btn btn-outline-secondary btn-sm" onclick="window.print
-                             class="()">
-                            <span style="marginqr-image"
+                    <div class="qr-wrapper">
+                        <img src="{{ url_for('static', filename='qrcodes/' + lote.qr_code_path) }}"
+                             alt="QR Code do Lote {{ lote.id }}"
+                             class="qr-image"
                              id="qrImage">
                     </div>
-                    
-                    <div class="qr-actions">
-                        -right: 6px;">🖨️</span>
-                            Imprimir
+
+                    <div class="qr-actions mt-3">
+                        <button class="btn btn-primary btn-sm" onclick="downloadQR()">
+                            <span style="margin-right: 6px;">💾</span>
+                            Baixar QR Code
                         </button>
-                    </div>
-                </div><button class="btn btn-primary btn-sm" onclick="downloadQR()">
-                            <span style="margin
-            </div>
-            
-            <!-- Instruções -->
-            <div class="col-lg-right: 6px;">💾</span>
-                            Ba-7">
-                <div class="instructions-section">
-                    <ixar QR Code
-                        </button>
-                        <button class="btn btnh4 class="instructions-title">
-                        <span-outline-secondary btn-sm" onclick="window.print()"> style="margin-right: 8px;">📋</span>
+                        <button class="btn btn-outline-secondary btn-sm" onclick="window.print()">
                             <span style="margin-right: 6px;">🖨️</span>
-                        Como usar o QR Code
-                    </h4>
-                    
-                    <div class="instruction-steps">
-                        <div class="
                             Imprimir
                         </button>
                     </div>
                 </div>
             </div>
-            step">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <h5>
+
             <!-- Instruções -->
-            <div class="col-lg-Baixe ou Imprima</h5>
-                                <p>Clique em "Baixar QR Code" para7">
+            <div class="col-lg-7">
                 <div class="instructions-section">
-                    <h salvar a imagem ou use "Imprimir" para imprimir diretamente.</p>
-4 class="instructions-title">
+                    <h4 class="instructions-title">
                         <span style="margin-right: 8px;">📋</span>
                         Como usar o QR Code
-                                                </div>
-                        </div>
-                        
-                        <div class="step">
-                            <div class="step-number">2</div>
-                            <div class</h4>
-                    
+                    </h4>
+
                     <div class="instruction-steps">
-                        <="step-content">
-                                <h5>Cole na Embalagem</h5>
-                                <p>div class="step">
+                        <div class="step">
                             <div class="step-number">1</div>
-                            <div class="stepFixe o QR Code em local visível na embalagem do produto para fácil-content">
+                            <div class="step-content">
                                 <h5>Baixe ou Imprima</h5>
-                                < acesso dos consumidores.</p>
+                                <p>Clique em "Baixar QR Code" para salvar a imagem ou use "Imprimir" para imprimir diretamente.</p>
                             </div>
                         </div>
-                        
-                        <div class="p>Clique em "Baixar QR Code" para salvar a imagem ou use "Imprimir" para imprimir diretamente.</p>
-                            step">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <h5></div>
-                        </div>
-                        
+
                         <div class="step">
-                            Rastreabilidade Ativa</h5>
-                                <p>Consumidores podem es<div class="step-number">2</div>
-                            <div class="step-content">canear e acessar todas as informações de origem do produto.</p>
-                            
-                                <h5>Cole na Embal</div>
-                        </div>
-                    </div>
-agem</h5>
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h5>Cole na Embalagem</h5>
                                 <p>Fixe o QR Code em local visível na embalagem do produto para fácil acesso dos consumidores.</p>
                             </div>
                         </div>
+
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h5>Rastreabilidade Ativa</h5>
+                                <p>Consumidores podem escanear e acessar todas as informações de origem do produto.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -155,1149 +91,613 @@ agem</h5>
 </div>
 
 <!-- Informações do Lote -->
-<div class="lote                        
-                        <div class="step-summary mt-4">
-    <div class="card border-0 shadow-sm">
-        <div class="card-">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <h5>Rastreabilidade Ativabody">
-            <h5 class="card-title</h5>
-                                <p>Consum">
-                <span style="margin-right: 8px;">📦idores podem escanear e acessar todas as informações de origem do produto.</p>
-                            </div></span>
-                Resumo do Lote Criado
-            
-                        </div>
-                    </div>
-                </div>
-            </div></h5>
-            <div class="row">
-                <
-        </div>
-    </div>
-</div>
-
-<!-- Informações do Lote -->div class="col-md-6">
-                    <div class="summary
 <div class="lote-summary mt-4">
-    <-item">
-                        <strong>ID do Lote:</strong>div class="card border-0 shadow-sm">
-
+    <div class="card border-0 shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">
+                <span style="margin-right: 8px;">📦</span>
+                Resumo do Lote Criado
+            </h5>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="summary-item">
+                        <strong>ID do Lote:</strong>
                         <span class="badge bg-success ms-2">#{{ lote.id }}</span>
                     </div>
                 </div>
-        <div class="card-body">
-            <h5 class="card-title">                <div class="col-md-6">
-                    <div class
-                <span style="margin-right: 8px;">📦</span>
-                Resumo do Lote Cri="summary-item">
-                        <strong>Status:</strong>
-ado
-            </h5>
-            <div class="row">                        <span class="badge bg-primary ms-2">Ativo para Rastreamento</span>
-                    </div>
-
                 <div class="col-md-6">
                     <div class="summary-item">
-                        <strong>ID do L                </div>
+                        <strong>Status:</strong>
+                        <span class="badge bg-primary ms-2">Ativo para Rastreamento</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Ações Principais -->ote:</strong>
-                        <span class="badge bg-success ms-2
-<div class="action-buttons text-center mt-5">
-    <div class="row justify-">#{{ lote.id }}</span>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    content-center">
-        <div class="col-md-8"><div class="summary-item">
-                        <strong>Status:</strong>
-                        <span class="
-            <div class="button-group">
-                <a href="{{badge bg-primary ms-2">Ativo para R url_for('registrar_lote') }}" class="btn btn-success btn-lg action-astreamento</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-btn">
-                    <span class="    </div>
-</div>
-
 <!-- Ações Principais -->
-btn-icon">➕</span>
-                    <span class="btn-text">Registrar Novo Lote</span>
-                <div class="action-buttons text-center mt-5">
+<div class="action-buttons text-center mt-5">
     <div class="row justify-content-center">
-</a>
-                
-                <a href="{{ url_for        <div class="col-md-8">
-('ver_lote', lote_id=lote.id) }}"            <div class="button-group">
-                <a href="{{ url target="_blank" class="btn btn-outline-primary_for('registrar_lote') }}" class="btn btn-lg action-btn">
-                    <span class="btn-icon btn-success btn-lg action-btn">
-                    <span class="">👁️</span>
-                    <span class="btn-btn-icon">➕</span>
-                    <span class="btn-text">text">Visualizar Página Pública</span>
+        <div class="col-md-8">
+            <div class="button-group">
+                <a href="{{ url_for('registrar_lote') }}" class="btn btn-success btn-lg action-btn">
+                    <span class="btn-icon">➕</span>
+                    <span class="btn-text">Registrar Novo Lote</span>
                 </a>
-                
-                <a href="{{ url_for('index')Registrar Novo Lote</span>
+
+                <a href="{{ url_for('ver_lote', lote_id=lote.id) }}" target="_blank" class="btn btn-outline-primary btn-lg action-btn">
+                    <span class="btn-icon">👁️</span>
+                    <span class="btn-text">Visualizar Página Pública</span>
                 </a>
-                
-                <a href="{{ url_for('ver_l }}" class="btn btn-outline-secondary btn-lg action-btn">ote', lote_id=lote.id) }}"
-                    <span class="btn-icon">🏠</span> target="_blank" class="btn btn
+
+                <a href="{{ url_for('index') }}" class="btn btn-outline-secondary btn-lg action-btn">
+                    <span class="btn-icon">🏠</span>
                     <span class="btn-text">Voltar ao Início</span>
                 </a>
             </div>
-        -outline-primary btn-lg action-btn">
-                    <span class="btn-icon">👁️</span></div>
+        </div>
     </div>
 </div>
 
 <style>
-    /* Vari
-                    <span class="btn-text">Visualizar Página Pública</span>
-                </a>
-                áveis CSS para Cores
-                <a href="{{ url_for('index') }}" class="btn e Fontes */
+    /* Variáveis CSS para Cores, Sombras e Transições */
     :root {
-         btn-outline-secondary btn-lg action-btn">
-                    <span--primary-color: #007bff; /* Azul vibr class="btn-icon">🏠</span>
-                    <spanante */
-        --secondary-color: #28a745; /* Verde de sucesso */
-         class="btn-text">Voltar ao Início</span>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<--accent-color: #style>
-    /* Variáveis CSS para6f42c1; /* Cores, Sombras e Transições */
- Roxo para destaque */
-        --text-primary: #343a40; /* Texto esc    :root {
-        --primary-color: #007bff; /* Azul primuro padrão */
-        --text-secondary:ário */
-        --secondary-color: #28a74 #6c757d; /* Texto secundário */
-        --surface: #5; /* Verde para sucesso */
-        --accent-color: #ffffff; /* Fundo de cart6f42ões e elementos */
-        --surface-secondary: #f8f9c1; /* Roxo (opcional, para destaquefa; /* Fundo secundário, como headers) */
-        --text-primary: #34 de cartão */
-        --neutral-103a40; /* Texto escuro */
-        --text-secondary0: #e9ecef; /* Bordas leves */
-        --neutral-200:: #6c757d; /* Texto cinza */
+        --primary-color: #007bff; /* Azul primário */
+        --secondary-color: #28a745; /* Verde para sucesso */
+        --accent-color: #6f42c1; /* Roxo (opcional, para destaque de cartão) */
+        --text-primary: #343a40; /* Texto escuro */
+        --text-secondary: #6c757d; /* Texto cinza */
         --surface: #ffffff; /* Fundo de cartões/elementos */
-         #dee2e6; /* Bordas e divis--surface-secondary: #f8f9faores; /* Fundo de se */
+        --surface-secondary: #f8f9fa; /* Fundo de seções/headers */
+        --neutral-100: #e9ecef; /* Borda clara */
+        --neutral-200: #dee2e6; /* Borda um pouco mais escura */
+        --neutral-300: #ced4da; /* Bordas e divisores */
 
-        --font-family-ções/headers */
-        --neutralsans-serif: 'Segoe UI', Roboto, '-200: #e9ecef; /* Borda clara */
-        --neutralHelvetica Neue', Arial, sans-serif;
-        --border-radius: 0.5rem;
-        -300: #dee2e6; /* Borda um pouco mais escura */
+        --border-radius: .5rem;
+        --border-radius-lg: .75rem;
 
-        ----border-radius-lg: 1rem;
-        --shadow-shadow-sm: 0 .125rem .2sm: 0 .125rem .25rem rgba(0,0,0,.5rem rgba(0,0,0,.0075);
-75);
-        --shadow-lg: 0 .5rem 1rem        --shadow-md: 0 .25rem .7 rgba(0,0,0,.15);
-5rem rgba(0,0,0,.09);
-        --shadow-lg: 0 .5rem 1.        --transition: all 0.3s ease-in-out;
+        --shadow-sm: 0 .125rem .25rem rgba(0,0,0,.075);
+        --shadow-md: 0 .25rem .75rem rgba(0,0,0,.09);
+        --shadow-lg: 0 .5rem 1.5rem rgba(0,0,0,.12);
+
+        --transition-speed: 0.3s;
+        --transition-timing: ease-in-out;
+        --transition: all var(--transition-speed) var(--transition-timing);
     }
 
     body {
-5rem rgba(0,0,0,.12);
-        
-        --border        font-family: var(--font-family-sans-serif);
-        background-radius: .-color: var(--surface-secondary);
-        color5rem;
-        --border-radius-lg: .75rem;
-
-        --transition-speed: var(--text-primary);
+        font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        background-color: var(--surface-secondary);
+        color: var(--text-primary);
     }
 
     /* Header de Sucesso */
-    .success-header {: 0.3s;
-        --transition-timing
-        padding: 2.5rem 0;
-        background: ease-in-out;
-        --transition: all: linear-gradient(135deg var(--transition-speed) var(--transition-timing);
+    .success-header {
+        padding: 3rem 0;
+        background: linear-gradient(to right, #d4edda, #c3e6cb); /* Fundo suave para o header */
+        border-bottom: 1px solid var(--neutral-200);
     }
-
-, var(--primary-color) 0%, var    body {
-        font-family: 'Segoe UI(--accent-color) 100%);
-        ', Roboto, 'Helveticacolor: white;
-        border-radius: var(--border-radius Neue', Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-        -lg);
-        margin-top: 1rem;
-background-color: var(--surface-secondary);
-                box-shadow: var(--shadow-lg);
-    color: var(--text-primary);
-    }
-
-    /* Estilos}
 
     .success-animation {
         margin-bottom: 2rem;
     }
 
-    . Gerais para Botões do Bootstrap */
-    .btn-primarycheckmark-circle {
+    .checkmark-circle {
         width: 90px;
-        height:  {
-        background-color: var90px;
-        border-(--primary-color);
-        border-color: var(--primary-colorradius: 50%;
-        background: rgba(255, 255, 255);
-    }
-    .btn-primary:, 0.2); /* Fundo shover {
-        background-color: darkenutil */
-        border: 4px solid white(var(--primary-color), 10%);
-;
+        height: 90px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--secondary-color) 0%, #30D158 100%);
         margin: 0 auto;
         position: relative;
-        border-color: darken(var(--primary-color), 10        box-shadow: 0 0 20px rgba%);
+        box-shadow: var(--shadow-lg);
+        animation: checkmarkScale var(--transition-speed) ease-out;
     }
-
-(0, 0, 0, 0.    .btn-success {
-        background-color:2);
-        animation: checkmarkScale 0.6s ease-out;
-    } var(--secondary-color);
-        border-color: var(--secondary-color);
-    }
-    .
 
     .checkmark {
         position: absolute;
-btn-success:hover {
-        background-color: darken(var(--secondary-color), 10%);        top: 50%;
+        top: 50%;
         left: 50%;
-        transform: translate(-50%, -5
-        border-color: darken(var(--secondary-color), 10%);
-    }
-
-    .btn-outline-primary {
-        0%);
-        width:color: var(--primary-color); 30px; /* Aumentado
-        border-color: var(--primary-color */
-        height: 20);
-    }
-    .btn-outline-primary:hover {
-        background-color: var(--primary-color);
-        colorpx; /* Aumentado */
+        transform: translate(-50%, -50%);
+        width: 30px;
+        height: 18px;
         border: solid white;
-        border-width:: var(--surface);
-    }
-
-    .btn-outline-secondary 0 0 5px 5px; /* {
-        color: var(--text-secondary);
-        border-color Borda mais grossa */
-        transform: translate(-50%, -6: var(--neutral-300);
-    }
-    .btn-outline-secondary:hover {
-0%) rotate(-45deg);
-        animation:        background-color: var(--neutral checkmarkDraw 0.4s ease-out 0.2s backwards;
-    -300);
-        color: var(--text-primary);
-    }
-
+        border-width: 0 0 5px 5px;
+        transform: translate(-50%, -60%) rotate(-45deg);
+        animation: checkmarkDraw 0.4s ease-out 0.2s backwards;
     }
 
     @keyframes checkmarkScale {
-        0% { transform: scale(0);/* Header de Sucesso */
-    .success-header {
-        padding: 3 opacity: 0; }
-        50% { transform: scale(1.1);rem 0;
-        background: linear-gradient( opacity: 1; }
-        100%to right, #d { transform: scale(1); }
+        0% { transform: scale(0); opacity: 0; }
+        50% { transform: scale(1.1); opacity: 1; }
+        100% { transform: scale(1); }
     }
 
-    @keyframes check4edda, #c3e6markDraw {
-        0% { width: 0; height: cb); /* Fundo suave para o header */0; }
-        100% { width: 30px
-        border-bottom: 1px solid var(--neutral-200);
-    ; height: 20px; }
+    @keyframes checkmarkDraw {
+        0% { width: 0; height: 0; }
+        100% { width: 30px; height: 18px; }
     }
 
     .success-title {
-        font-weight: 70}
-
-    .success-animation {0;
-        
-        margin-bottom: 2rem;
-    }
-
-    .checkmark-circle {color: white; /* Cor do título alterada para branco
-        width: 90px;
- */
-        font-size: 2.8rem; /*        height: 90px;
-        border- Tamanho da fonte ajustado */
-        margin-bottom:radius: 50%;
-        background: linear-gradient(13 1rem;
-    }
-
-    .success-subtitle {
-        color: rgba(2555deg, var(--secondary-color) 0%, #30D158 100%);, 255, 2
-        margin: 0 auto;
-        position:55, 0.9); /* Subtítulo mais relative;
-        box-shadow: var claro */
-        font-size: 1.3(--shadow-lg);
-        animation: checkmarkScale5rem; /* Tamanho da fonte ajustado */
- var(--transition-speed) ease-out        margin: 0;
-    }
-
-    .lote-number;
-    }
-
-    .checkmark {
-        position: absolute;
-        top:  {
-        background: rgba(255, 2550%;
-        left: 50%;
-        transform: translate5, 255, 0.2); /* Fundo sutil */
-(-50%, -50%);
-        width:        color: white;
-        padding 30px;
-        height: 18px;
-: 0.3rem 0.9rem; /* Preenchimento ajustado        border: solid white;
-        border-width: 0 0 5px 5px */
-        border-radius: 25px; /*;
-        transform: translate(-50%, -60%) rotate(- Borda mais arredondada */
-        font-weight: 600;
-        font45deg);
-        animation: checkmarkDraw 0.4s ease-out -size: 1.1rem; /* Tamanho0.2s backwards;
-    }
-
-    @ da fonte ajustado */
-        box-shadow: var(--shadow-smkeyframes checkmarkScale {
-        0% { transform: scale(0););
-    }
-
-    /* Card Principal */
-    .main opacity: 0; }
-        50% { transform: scale(-success-card {
-        border-radius: var1.1); opacity: 1; }
-        (--border-radius100% { transform: scale(1); }
-    }
-
--lg);
-        overflow: hidden    @keyframes checkmarkDraw {
-        0% { width: 0;
-        margin-bottom: 2rem;
-        background-color: var(--surface);
-        box-shadow: var(--shadow-lg);
-    }; height: 0; }
-        100% { width:
-
-    .card-header {
- 30px; height: 18px; }
-    }        background: linear-gradient(135deg, var(--surface-secondary) 
-
-    .success-title {
-        font-weight0%, var(--neutral-100) 100%);: 700;
+        font-weight: 700;
         color: var(--text-primary);
-        border-bottom: 1px solid var(--neutral-20
         font-size: 2.8rem;
-        margin-bottom: 00);
-        padding: 2.5rem;
-        border-.8rem;
+        margin-bottom: 0.8rem;
     }
 
     .success-subtitle {
-        top-left-radius: var(--border-radius-color: var(--text-secondary);
-        font-lg);
-        border-top-right-radius: var(--border-size: 1.35rem;
+        color: var(--text-secondary);
+        font-size: 1.35rem;
         margin: 0;
     }
 
     .lote-number {
-        backgroundradius-lg);
-    }
-
-    .header-content {: linear-gradient(135deg, var(--secondary-color)
-        max-width: 4 0%, #30D158 150px; /* Aumentado */
-00%);
+        background: linear-gradient(135deg, var(--secondary-color) 0%, #30D158 100%);
         color: white;
-        padding: 0.3rem 0.8rem;
-        border        margin: 0 auto;
-    }
-
-    .-radius: 25px;
-        font-weight:header-icon {
-        font-size: 3.5rem; /* Aumentado */
-        display: block;
- 600;
-        font-size:         margin-bottom: 1rem;
-        color1.1rem;
+        padding: 0.3rem 0.9rem;
+        border-radius: 25px;
+        font-weight: 600;
+        font-size: 1.1rem;
         display: inline-block;
-        margin-left:: var(--primary-color); /* Cor do ícone 0.5rem;
+        margin-left: 0.5rem;
+        box-shadow: var(--shadow-sm);
     }
 
     /* Card Principal */
     .main-success-card {
-        border-radius: var */
+        border-radius: var(--border-radius-lg);
+        overflow: hidden;
+        margin-bottom: 2.5rem;
+        box-shadow: var(--shadow-lg);
+    }
+
+    .card-header {
+        background: var(--surface);
+        border-bottom: 1px solid var(--neutral-200);
+        padding: 2.5rem;
+        border-top-left-radius: var(--border-radius-lg);
+        border-top-right-radius: var(--border-radius-lg);
+    }
+
+    .header-content {
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    .header-icon {
+        font-size: 3.5rem;
+        display: block;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
     }
 
     .header-title {
         font-weight: 600;
-        (--border-radius-lg);
-        overflow: hidden;
-        margin-bottom: color: var(--text-primary);2.5rem;
-        box-shadow: var(--shadow-lg);
-    }
-        margin-bottom: 0.5rem;
-        font-size: 1.8rem; /* A
-
-    .card-header {
-        background: var(--surface);umentado */
+        color: var(--text-primary);
+        margin-bottom: 0.6rem;
+        font-size: 1.8rem;
     }
 
     .header-subtitle {
         color: var(--text-secondary);
         margin: 0;
-        font-size: /* Fundo mais claro */
-        border-bottom: 1.1 1px solid var(--neutral-200);5rem; /* Aumentado */
-        padding: 2.5rem;
+        font-size: 1.15rem;
     }
 
-    .
-    }
-
-    /* QR Codeheader-content {
-        max-width: 450px; Display */
+    /* QR Code Display */
     .qr-display-container {
-
-        margin: 0 auto;
-    }
-
-    .header-icon {
-        font-        text-align: center;
-        padding: 2size: 3.5rem;
-        display: block;
-        margin-bottom: 1rem;
-        color: var(--primaryrem;
+        text-align: center;
+        padding: 2.5rem;
+        background-color: var(--surface-secondary);
+        border-right: 1px solid var(--neutral-200); /* Separador visual */
     }
 
     .qr-wrapper {
         background: var(--surface);
-        border: 4px solid var(--neutral--color);
-    }
-
-    .header-title {
-        font-weight: 100); /* Borda mais grossa e suave */
-        border-radius: var(--border-radius600;
-        color:-lg);
-        padding: 2.5rem var(--text-primary);
-        margin-bottom: 0.6rem;
-        ; /* Preenchimento ajustado */
-        margin-bottom: 2rem;
-        font-size: 1.8rem;
-    }
-
-    .header-subtitle {display: inline-block;
+        border: 4px solid var(--neutral-200);
+        border-radius: var(--border-radius-lg);
+        padding: 2.5rem;
+        display: inline-block;
         transition: var(--transition);
-        box-shadow: var
-        color: var(--text-secondary);
-        margin: 0;
-        font-size: 1.15rem;
-    (--shadow-sm);
+        box-shadow: var(--shadow-sm);
     }
 
     .qr-wrapper:hover {
         border-color: var(--primary-color);
-        box-shadow: 0 0 0 6}
-
-    /* QR Code Display */
-    .qr-display-container {
-        textpx rgba(0, 122, 255, 0.15); /* S-align: center;
-        padding: 2.ombra maior e mais suave5rem;
-        background-color: var(--surface-secondary);
- */
-        transform: scale(1.08) rotate(1        border-right: 1px solid var(--neutral-2deg); /* Efeito mais pronunciado */
-    00); /* Separador visual */
+        box-shadow: 0 0 0 6px rgba(0, 122, 255, 0.15);
+        transform: scale(1.03) rotate(2deg);
     }
 
-    .qr-wrapper {}
-
     .qr-image {
-        max-
-        background: var(--surface);width: 280px; /* Aumentado */
+        max-width: 280px;
         width: 100%;
         height: auto;
-        display:
-        border: 4px solid var(--neutral-200);
-        border-radius: var(-- block;
-        border-radius:border-radius-lg);
-        padding: 2.5rem; var(--border-radius-sm); /* Levemente arredondado */
-    }
-
-    .qr-actions {
-        
-        margin-bottom: 2.5rem;
-        display: inline-display: flex;
-        gap: 1.2remblock;
-        transition: var(--transition);
-        box-shadow:; /* Espaçamento ajustado */ var(--shadow-sm);
-    }
-
-    .qr
-        justify-content: center;
-    }
-    
-    .-wrapper:hover {
-        border-color: var(--primary-color);
-        box-shadow: qr-actions .btn {
-        padding: 00 0 0 5px rgba(0,.75rem 1.5rem; /* Aumentado */
-        font-size: 1rem 122, 255, 0.15);
-        transform:;
-        border-radius: var(--border-radius);
- scale(1.03); /* Su        display: inline-flex;
-        align-itemsavizei o scale */
-    }: center;
-        box-shadow: var
-
-    .qr-image {
-        max-width(--shadow-sm);
-        transition: var(--transition);
-    }
-
-    .qr: 280px; /* Tamanho um pouco maior */
--actions .btn:hover {
-        transform: translateY(-2px);        width: 100%;
-        height: auto;
         display: block;
-        box-shadow: var(--shadow-lg
+        border-radius: var(--border-radius-sm);
     }
 
     .qr-actions {
-        );
+        display: flex;
+        gap: 1.25rem;
+        justify-content: center;
+        margin-top: 1.5rem; /* Adjusted margin top */
+    }
+
+    .qr-actions .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        border-radius: var(--border-radius);
+        display: inline-flex;
+        align-items: center;
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition);
+    }
+
+    .qr-actions .btn:hover {
+        transform: translateY(-2px);
     }
 
     /* Instruções */
-    .instructions-sectiondisplay: flex;
-        gap: 1.25rem;
- {
-        padding: 2rem;
-        border        justify-content: center;
-    }
-
-    -left: 1px solid var(--neutral-100); /*/* Instruções */
     .instructions-section {
-        padding:  Linha divisória */
-    2.5rem;
+        padding: 2.5rem;
     }
-
-    .instructions-title {}
 
     .instructions-title {
         font-weight: 600;
-
-        font-weight: 600;
         color: var(--text-primary);
-        margin-bottom: 2.5        color: var(--text-primary);
-        margin-bottom: rem;
-        font-size: 1.6rem;
-        border-bottom:2.5rem; /* Espaçamento ajustado */
-        font-size:  2px solid var(--1.7rem; /* Tamanho da fonte ajustado */
-    }
-
-    .neutral-200);
-        padding-bottom: 1rem;instruction-steps {
-        display: flex;
-        
+        margin-bottom: 2.5rem;
+        font-size: 1.7rem;
     }
 
     .instruction-steps {
-flex-direction: column;
-        gap: 2.5rem; /* Esp        display: flex;
+        display: flex;
         flex-direction: column;
-        gap: 2.açamento ajustado */
-    }2rem;
+        gap: 2.2rem;
     }
-
-    .step
 
     .step {
         display: flex;
-        align-items {
-        display: flex;
         align-items: flex-start;
-        gap: 1.: flex-start;
-        gap: 1.88rem; /* Espaçamento ajustado */
-    rem;
+        gap: 1.8rem;
     }
-
-    .}
 
     .step-number {
-        width: 45pxstep-number {
         width: 45px;
-        height; /* Aumentado */
-        height: 45px; /*: 45px;
-         Aumentado */
-        border-radius: 5border-radius: 50%;
-        background: linear-gradient(135deg, var(--primary-color) 0%, #0051D0%;
-        background: linear-gradient(135deg, var5 100%);
+        height: 45px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--primary-color) 0%, #0056b3 100%);
         color: white;
-        display:(--primary-color) 0%, # flex;
+        display: flex;
         align-items: center;
-        justify-content:0056b3 10 center;
-        font-weight: 7000%); /* Gradiente mais profundo */
-        color: white;
-        display:;
+        justify-content: center;
+        font-weight: 700;
         font-size: 1.2rem;
         flex-shrink: 0;
- flex;
-        align-items: center;
-                box-shadow: var(--shadow-md);
-    }
-
-    .step-content h5justify-content: center;
-        font-weight: 700; /* Mais {
-        font-weight: 600;
-        color: var(--text- negrito */
-        flex-shrink: 0;
-primary);
-        margin-bottom: 0.6rem;
-                box-shadowfont-size: 1.15rem;
-    }
-
-    : var(--shadow-sm);
-    }
-
-    .step-content h5 {
-        font-weight: 600.step-content p {
-        color: var(--text-secondary);;
-        color: var(--text-primary);
-
-        margin: 0;
-        line-height: 1.6;
-            margin-bottom: 0.6rem;
-        font-size: 1.2rem; /*}
-
-    /* Resumo do Lote */
-    .lote-summary .card {
-        background: linear-gradient( Aumentado */
-    }
-
-    .step-content p {
-        color: var(--text-secondary135deg, rgba(40, 167, 6);
-        margin: 0;
-        line-height: 1.6; /* Alt9, 0.08) 0%, rgbaura de linha melhorada */
-    }
-
-    /*(48, 209, 8 Resumo do Lote */
-    8, 0.08) 100%); /* Cor mais vibrante para.lote-summary .card {
-        background: linear-gradient(135deg, rgba(4 o gradiente */
-        border-left:0, 167, 69, 0.08) 0%, 5px solid var(--secondary-color);
-        border-radius: var(--border-radius- rgba(32, 13lg);
         box-shadow: var(--shadow-sm);
     }
 
-    .lote-summary6, 55, 0.08) 100%); .card-body {
-        padding: 1.8rem;
+    .step-content h5 {
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 0.6rem;
+        font-size: 1.2rem;
     }
 
-    .lote-summary . /* Gradiente mais sutil */
-        card-title {
-        font-weight: 6border-left: 5px solid var(--secondary-color);00;
-        color: var(--text-primary /* Borda mais pronunciada */
-        border-radius: var(--border-);
-        margin-bottom: 1.5remradius);
-        box-shadow: var(--shadow-sm);;
-        font-size: 1.3rem
+    .step-content p {
+        color: var(--text-secondary);
+        margin: 0;
+        line-height: 1.6;
     }
 
-    .lote-summary;
-        border-bottom: 1px dashed var(--neutral-200); /* Linha trace .card-body {
+    /* Resumo do Lote */
+    .lote-summary .card {
+        background: linear-gradient(135deg, rgba(40, 167, 69, 0.08) 0%, rgba(32, 136, 55, 0.08) 100%);
+        border-left: 5px solid var(--secondary-color);
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .lote-summary .card-body {
         padding: 1.5rem;
     }
 
     .lote-summary .card-title {
-        font-jada */
-        padding-bottom: 0.8size: 1.4rem;
-        rem;
-    font-weight: 600;}
-
-    .summary-item {
+        font-size: 1.4rem;
+        font-weight: 600;
         color: var(--text-primary);
-        margin-bottom: 1.2
-        display: flex;
-        align-items: center;
-        margin-bottom:rem;
-    } 0.7rem;
-        font-size: 1.05rem;
+        display: flex; /* Added display flex for icon alignment */
+        align-items: center; /* Added align-items for icon alignment */
+        margin-bottom: 1.5rem; /* Adjusted margin bottom */
+        border-bottom: 1px dashed var(--neutral-200); /* Linha tracejada */
+        padding-bottom: 0.8rem;
     }
 
-    .summary-item
-
     .summary-item {
         display: flex;
         align-items: center;
-        margin-bottom:  strong {
-        color: var(--text-primary);
-        margin-right: 0.6rem;
-        min0.75rem;
+        margin-bottom: 0.75rem;
     }
 
     .summary-item strong {
-        color: var(--text-width: 80px; /* Alinha os dois-primary);
-        margin-right: 0.6 pontos */
+        color: var(--text-primary);
+        margin-right: 0.6rem;
+        font-weight: 500;
+        min-width: 80px; /* Alinha os pontos */
     }
 
-    /* Botões de Ação */
-    rem;
-        font-weight: 5.action-buttons {
-        margin-top00;
-    }
-    
-    .lote-summary .: 4rem;
-        margin-bottom: 4badge {
-        padding: 0.4em 0.8em;rem;
-    }
-
-    .button-group {
-        font-size: 0
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;.9em;
+    .lote-summary .badge {
+        padding: 0.4em 0.8em;
+        font-size: 0.9em;
         border-radius: 0.5rem;
     }
 
-    /* Botões de A
-        max-width: 600px;
-        margin: 0 auto;
-    }
-
-ção */
+    /* Botões de Ação */
     .action-buttons {
-        margin-top: 4rem; /*    .action-btn {
-        display: flex;
-        align-items: center;
-        justify- Margem aumentadacontent: center;
-        gap: */
+        margin-top: 4rem;
         margin-bottom: 4rem;
     }
 
     .button-group {
-        display 1rem;
-        padding: 1.4rem 2.2rem;
-        : flex;
+        display: flex;
         flex-direction: column;
-        gap: font-weight: 600;
-        transition: var(--transition);
-        border-radius: var1.2rem; /* Espaçamento ajustado */
-        max-width: (--border-radius-lg);
-        font-size600px; /* Largura máxima aumentada: 1.15rem;
-         */
+        gap: 1.2rem;
+        max-width: 600px;
         margin: 0 auto;
     }
 
-    .actionbox-shadow: var(--shadow-md);
-    }
-
-    -btn {
+    .action-btn {
         display: flex;
         align-items: center;
-        justify-content: center.action-btn:hover {
-        transform: translateY(-3px);
-        ;
-        gap: 0.8rem;box-shadow: var(--shadow-lg);
-    }
-
-    . /* Espaçamento do ícone/texto ajustado */
-        padding: 1.4rem 2.btn-icon {
-        font-size: 1.4rem;
-    }
-
-    .btn-text {2rem; /* Preenchimento ajustado */
-        font-weight: 600; /* Mais neg
-        font-size: 1.2rem;
-    }
-
-    /* Responsividade */
-rito */
+        justify-content: center;
+        gap: 0.8rem;
+        padding: 1.4rem 2.2rem;
+        font-weight: 600;
         transition: var(--transition);
-        border-radius:    @media (min-width: 768px) {
- var(--border-radius-lg); /* Bord        .button-group {
-            flex-direction:as mais arredondadas */
-        font-size: 1.15 row;
-            justify-content: center;
-            flex-wrap: wrap; /* Permrem; /* Tamanho da fonte ajustado */
-        box-shadow:ite quebrar em várias linhas se muitos botões */
- var(--shadow-sm);
+        border-radius: var(--border-radius-lg);
+        font-size: 1.15rem;
+        box-shadow: var(--shadow-sm);
     }
 
-    .action        }
-        
-        .action-btn {
-            flex: -btn.btn-success {
-        background: linear-gradient(0 1 auto;
-            min-width: 220px; /* Larg135deg, var(--secondary-color) 0%, #2ura mínima para botões em18838 100%);
-        border desktop */
-        }
-
-        .qr-display-container {
-            border-color: #218838;
--right: 1px solid var(--neutral-200);
+    .action-btn.btn-success {
+        background: linear-gradient(135deg, var(--secondary-color) 0%, #218838 100%);
+        border-color: #218838;
         color: white;
     }
 
-    .action-btn.btn        }
-    }
-
-    @media (max-width: 9-outline-primary {
+    .action-btn.btn-outline-primary {
         color: var(--primary-color);
-92px) {
-        .instructions-section,        border-color: var(--primary-color); .qr-display-
+        border-color: var(--primary-color);
         background-color: white;
     }
 
-    .action-container {
-            padding: 2btn.btn-outline-secondary {
+    .action-btn.btn-outline-secondary {
         color: var(--text-secondary);
-rem 1.5rem;
-        }
-        
-        .qr-display-container {
-            border-right: none; /* Remove separador em        border-color telas menores */
-            border-bottom: : var(--neutral1px solid var(--neutral-200);
-        }
-    }
-
-    @-200);
+        border-color: var(--neutral-200);
         background-color: white;
     }
 
-
-media (max-width: 768px) {
-        .success-title {
-            font-size: 2.2rem;    .action-
-        }
-        
-        .success-subtitle {
-            font-size: 1btn:hover {
-        transform: translateY(-3px); /* Efeito de.15rem;
-        }
-         hover mais pronunciado */
+    .action-btn:hover {
+        transform: translateY(-3px);
         box-shadow: var(--shadow-lg);
     }
 
     .btn-icon {
-        font-size: 
-        .checkmark-circle {
-            width: 70px;
-            height:1.35rem; /* Aumentado */
+        font-size: 1.35rem;
     }
 
     .btn-text {
-        font-size: 1.15 70px;
-        }
-        
-        rem;
+        font-size: 1.15rem;
     }
 
     /* Responsividade */
-    @media (min-width.checkmark {
-            width: 22px;
-            height: 1: 768px) {
+    @media (min-width: 768px) {
         .button-group {
-4px;
-        }
-        
-        .qr-image {
-            max-width            flex-direction: row;
+            flex-direction: row;
             justify-content: center;
-: 220px;
+            flex-wrap: wrap;
         }
-        
-        .step            flex-wrap: wrap; /* Permite quebrar {
+
+        .action-btn {
+            flex: 1 1 auto;
+            max-width: 30%;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .instructions-section {
+            padding-left: 3rem;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .instructions-section,
+        .qr-display-container {
+            padding: 2rem 1.5rem;
+        }
+
+        .qr-display-container {
+            border-right: none;
+            border-bottom: 1px solid var(--neutral-200);
+            margin-top: 2rem;
+            padding-top: 3rem;
+        }
+
+        .lote-summary .card-title {
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .success-title {
+            font-size: 2.2rem;
+        }
+
+        .success-subtitle {
+            font-size: 1.15rem;
+        }
+
+        .checkmark-circle {
+            width: 70px;
+            height: 70px;
+        }
+
+        .checkmark {
+            width: 22px;
+            height: 14px;
+        }
+
+        .qr-image {
+            max-width: 180px;
+        }
+
+        .step {
             flex-direction: column;
             text-align: center;
-            gap: 1.2rem;
+            gap: 1rem;
         }
-        
+
         .step-number {
- linha se houver muitos bot            margin: 0 auto;
+            margin: 0 auto;
         }
-        
+
         .instructions-title {
-            font-sizeões */
-        }
-        
-        .action-btn {
-            flex: 1 1 auto; /* Permite que os botões cres: 1.4rem;
+            font-size: 1.4rem;
             text-align: center;
         }
-        çam */
-            max-width: 30%; /* Limita a largura para melhor espa
+
         .qr-actions {
             flex-direction: column;
-            align-itemsçamento */
-        }
-    }
-    
-    @media (min-width: : center;
-        }
-        
-        .qr-actions .btn992px) {
-        .instructions-section {
-            padding {
-            width: 220px; /* Largura fixa-left: 3rem; /* Mais espaço à para botões em mobile */
+            align-items: center;
         }
 
-        .lote esquerda */
+        .qr-actions .btn {
+            width: 80%;
+            max-width: 250px;
         }
-    }
 
-    @media (max-width-summary .card-title {
-            text-align: center: 992px) {
-        .instructions-section {
-            padding: ;
+        .action-btn {
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            width: 90%;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        .button-group {
+            align-items: center;
         }
     }
 
     /* Print Styles */
     @media print {
-2rem 1.5rem;        .action-buttons,
-        .instructions-section,
-        .
-            border-left: none; /* Remove a linha divisória em telas menores */
-            border-topsuccess-header,
-        .card: 1px solid var(--neutral-100); /* Adiciona-header .header-subtitle { /* Esconde elementos não uma linha superior */
-            margin-top: 2rem;
-            padding-top essenciais para impressão */
-            display: none !important: 3rem;
-        }
-        
-        .qr-display-container {;
-        }
-        
         body {
-            background-color:
-            padding: 1.5rem;
-            margin-bottom: white !important;
+            background-color: #fff !important;
+        }
+        .action-buttons,
+        .instructions-section,
+        .success-header {
+            display: none !important;
         }
 
-        .main-success-card, 1.5rem;
-        }
-    }
-
-    @media (max-width: 7 .lote-summary .card {68px) {
-        .success-title
+        .main-success-card,
+        .lote-summary {
             box-shadow: none !important;
-            border: 1px solid #ddd !important;
- {
-            font-size: 2.2rem;
+            border: 1px solid #ccc !important;
+            margin-top: 0 !important;
         }
-        
-        }
-        
+
         .card-header {
-        .success-subtitle {
-            font-size: 1.1            background: white !important;
-            border-bottomrem;
+            background: white !important;
+            border-bottom: 1px solid #eee !important;
         }
-        
-        .checkmark-: none !important;
-            padding-bottom: 1rem !important;
-        }
-        
+
         .qr-wrapper {
-            circle {
-            border: 2px solid #0width: 70px;
-            height: 70px;
-        }
-        
-        .checkmark {
-            00 !important;
+            border: 2px solid #000 !important;
             box-shadow: none !important;
-            padding: 1rem !importantwidth: 22px;
-            height: 14px;
+            transform: none !important;
         }
-;
-        }
-
         .qr-image {
-            max-width: 18        
-        .qr-image {
-            max-width: 180px;
+            max-width: 200px !important;
+            width: 100% !important;
+            margin: 0 auto !important;
         }
-        
-        .step {
-            flex-direction:0px; /* Menor para impressão */
-            margin: 0 auto;
+        .qr-display-container {
+            border-right: none !important;
+            padding: 1rem !important;
         }
-
-        .qr column;
-            text-align: center;
-            gap: 1rem;
+        .lote-summary {
+            margin-top: 2rem !important;
         }
-        
--display-container {
-            border        .step-number {
-            margin: 0 auto;
-        -right: none !important;
-            padding: 1rem !important}
-        
-        .instructions-title {
-            font-size:;
-        }
-
-        .lote-summary { 1.4rem;
-            text-align:
-            margin-top: 2rem !important; center;
-        }
-        
-        .qr-
-        }
-
-        .lote-summary .cardactions {
-            flex-direction: column;
-            align-items: {
-            border-left: 2px solid var(--secondary-color center;
-        }
-        
-        .qr-actions .btn {
-            width:) !important;
+        .lote-summary .card {
+            border-left: 2px solid var(--secondary-color) !important;
         }
     }
 
     /* Animações de Entrada */
- 80%; /* Botões maiores em mobile    /* Já definidas no código original e aprimoradas pelas */
-            max-width: 250px;
-        }
-
- variáveis */
     @keyframes slideInUp {
-        from        .action-btn {
-            padding {
-            transform: translate: 1rem 1.5rem;
-            font-size: 1rem3d(0, 100%, 0);
-            opacity: ;
-            width: 90;
-        }
-        to {
-            transform: translate3d0%; /* Botões de ação mais largos em mobile */
-            max-width:(0, 0, 0);
-            opacity 300px;
-            margin:: 1;
-        }
- 0 auto;
-        }
-        .    }
-
-    @keyframes fadeInUp {
-        from {button-group {
-            align-items: center;
-        }
-    }
-
-    /*
+        from {
+            transform: translateY(20px);
             opacity: 0;
-            transform: translate3d(0, 20px, Print Styles */
-    @media print {
-        body {
-            background 0);
         }
-        to {
-            -color: #fff !opacity: 1;
-            transform: translate3dimportant;
-        }
-        .action-buttons,
-        .instructions(0, 0, 0);
-        }-section,
-        .success-header {
-    }
-
-    @keyframes fadeInLeft {
-        from /* Remove o cabeçalho de sucesso na impressão */
-            display: none !important; {
-            opacity: 0;
-            transform: translate3d(-20px, 0, 0);
-        
-        }
-        
-        .main-success-card}
-        to {
-            opacity: 1;
-            transform:,
-        .lote-summary { translate3d(0, 0
-            box-shadow: none !important;
-, 0);
-        }
-    }
-</            border: 1px solid #ccc !important;
-            marginstyle>
-
-<script>
-    // Função para baixar o QR Code
--top: 0 !important;
-        }
-    function downloadQR() {
-        const qrImage =        
-        .card-header {
-            background: white !important;
-             document.getElementById('qrImage');
-        const link = document.createElement('a');
-        link.href =border-bottom: 1px solid #eee !important;
-        } qrImage.src;
-        link.download = `
-        
-        qr_code_lote_{{ lote.id }}.png`;
-        document.body.appendChild(link);
-        link.qr-wrapper {
-            border: 2px solid #000 !important;
-            box-.click();
-        document.body.removeChild(link);
-    }
-    
-    // Animaçãoshadow: none !important;
-             de entrada escalonada
-    document.addEventListener('DOMContentLoaded', function() {transform: none !important;
-        }
-        .qr-image
-        const steps = document.querySelectorAll('.step');
-        steps.forEach {
-            max-width: 200px !important;
-            width: ((step, index) => {
-100%            step.style.animation = `fadeInLeft  !important;
-            margin: 0 auto !important;
-        }
-        .qr-actions0.6s ease-out ${0.1 * index}s backwards`;
-        });
-    });
-    
-    // {
-            display: none !important; /* Esconde botões de ação na impressão do Efeito hover no QR Code
-    const qrWrapper = document.querySelector('. QR */
-        }
-    }
-
-    /* Animações deqr-wrapper');
-    if (qrWrapper) { Entrada */
-    @keyframes slideInUp {
-        
-        qrWrapper.addEventListener('mouseenter', function() {from {
-            transform
-            this.style.transform = 'scale(1.03): translateY(20px);
-            opacity: 0;
-         rotate(2deg)';
-        });
-        
-        qrWrapper.addEventListener}
         to {
             transform: translateY(0);
-            opacity('mouseleave', function() {
-            this.style.transform = 'scale(1) rotate(0deg)';
-        });
-: 1;
+            opacity: 1;
         }
     }
 
     @keyframes fadeInUp {
         from {
-            transform:    }
+            opacity: 0;
+            transform: translate3d(0, 20px, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    @keyframes fadeInLeft {
+        from {
+            opacity: 0;
+            transform: translate3d(-20px, 0, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+
+<script>
+    // Função para baixar o QR Code
+    function downloadQR() {
+        const qrImage = document.getElementById('qrImage');
+        const link = document.createElement('a');
+        link.href = qrImage.src;
+        link.download = `qr_code_lote_{{ lote.id }}.png`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    // Animação de entrada escalonada para os passos
+    document.addEventListener('DOMContentLoaded', function() {
+        const steps = document.querySelectorAll('.step');
+        steps.forEach((step, index) => {
+            step.style.animation = `fadeInLeft 0.6s ease-out ${0.1 * index}s backwards`;
+        });
+    });
+
+    // Efeito hover no QR Code (ajustado para o novo transform na animação)
+    const qrWrapper = document.querySelector('.qr-wrapper');
+    if (qrWrapper) {
+        qrWrapper.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.03) rotate(2deg)';
+        });
+
+        qrWrapper.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1) rotate(0deg)';
+        });
+    }
 </script>
 
 {% endblock %}
