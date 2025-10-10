@@ -1,6 +1,6 @@
 # app/routes.py
 
-from flask import render_template, request, redirect, url_for, flash
+from flask import render_template, request, redirect, url_for, flash, abort
 from app import app, db
 from app.models import User, Produtor, Propriedade, Lote
 from app.forms import LoginForm, RegistrationForm
@@ -132,3 +132,34 @@ def ver_lote(lote_id):
                            lote=lote, 
                            hora_atual=hora_atual)
 
+# NOVA ROTA PARA EXCLUIR O LOTE
+@app.route('/lote/<int:lote_id>/delete', methods=['POST'])
+@login_required
+def delete_lote(lote_id):
+    # Busca o lote no banco de dados ou retorna erro 404 se não encontrar
+    lote = Lote.query.get_or_404(lote_id)
+
+    # Verificação de segurança: garante que o lote pertence ao usuário logado
+    if lote.propriedade.produtor.user_id != current_user.id:
+        # Se não for o dono, aborta a operação com um erro de "Acesso Proibido"
+        abort(403)
+
+    # Tenta excluir o arquivo de imagem do QR Code
+    if lote.qr_code_path:
+        try:
+            qr_code_full_path = os.path.join(app.root_path, 'static/qrcodes', lote.qr_code_path)
+            if os.path.exists(qr_code_full_path):
+                os.remove(qr_code_full_path)
+        except OSError as e:
+            # Em caso de erro na exclusão do arquivo, informa no console, mas continua
+            print(f"Erro ao deletar o arquivo do QR Code: {e}")
+
+    # Exclui o lote do banco de dados
+    db.session.delete(lote)
+    db.session.commit()
+
+    # Envia uma mensagem de sucesso para o usuário
+    flash('Lote excluído com sucesso!', 'success')
+    
+    # Redireciona de volta para a página de perfil
+    return redirect(url_for('profile'))
