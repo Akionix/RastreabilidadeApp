@@ -27,11 +27,6 @@ def login():
         return redirect(url_for('profile'))
     return render_template('login.html', title='Entrar', form=form)
 
-@app.route('/logout')
-def logout():
-    logout_user()
-    return redirect(url_for('index'))
-
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
@@ -42,7 +37,7 @@ def register():
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
-        flash('Parabéns, você foi registrado com sucesso!', 'success')
+        flash('Parabéns, você foi registrado com sucesso!', 'register_success')
         return redirect(url_for('login'))
     return render_template('register.html', title='Registrar', form=form)
 
@@ -163,3 +158,10 @@ def delete_lote(lote_id):
     
     # Redireciona de volta para a página de perfil
     return redirect(url_for('profile'))
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    # Adicione esta linha com a categoria 'logout_success'
+    flash('Você saiu com segurança. Até logo!', 'logout_success') 
+    return redirect(url_for('index'))

@@ -158,9 +158,54 @@
                 opacity: 1;
             }
         }
+
+         /* --- ESTILOS DO TOAST CUSTOMIZADO --- */
+        .custom-toast {
+            position: fixed; top: 90px; right: 20px; z-index: 1100;
+            max-width: 350px; background-color: #fff; border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg); display: flex; align-items: center;
+            padding: 1rem 1.5rem; opacity: 0; transform: translateX(100%);
+            animation: slideInToast 0.5s forwards ease-out; overflow: hidden;
+        }
+        .custom-toast.success { border-left: 5px solid var(--secondary-color); }
+        .custom-toast.danger { border-left: 5px solid var(--tertiary-color); }
+        .custom-toast.show { opacity: 1; transform: translateX(0); }
+        .custom-toast.hide { animation: slideOutToast 0.5s forwards ease-in; }
+        .toast-icon { font-size: 1.5rem; margin-right: 1rem; }
+        .custom-toast.success .toast-icon { color: var(--secondary-color); }
+        .custom-toast.danger .toast-icon { color: var(--tertiary-color); }
+        .toast-body p { margin: 0; font-weight: 500; }
+        .toast-close { font-size: 1.2rem; background: none; border: none; color: var(--text-secondary); cursor: pointer; }
+        .toast-progress {
+            position: absolute; bottom: 0; left: 0; height: 4px;
+            width: 100%; animation: progressShrink 5s linear forwards;
+        }
+        .custom-toast.success .toast-progress { background-color: var(--secondary-color); }
+        .custom-toast.danger .toast-progress { background-color: var(--tertiary-color); }
+        @keyframes slideInToast { from { opacity: 0; transform: translateX(100%); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes slideOutToast { from { opacity: 1; transform: translateX(0); } to { opacity: 0; transform: translateX(100%); } }
+        @keyframes progressShrink { from { width: 100%; } to { width: 0%; } }
+
     </style>
 </head>
 <body>
+
+    <!-- CONTAINER ÚNICO PARA MENSAGENS FLASH -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+            {% if category in ['logout_success', 'register_success', 'danger'] %}
+                {% set toast_class = 'success' if category != 'danger' else 'danger' %}
+                {% set toast_icon = 'fas fa-check-circle' if toast_class == 'success' else 'fas fa-exclamation-triangle' %}
+                <div class="custom-toast show {{ toast_class }}">
+                    <div class="toast-icon"><i class="{{ toast_icon }}"></i></div>
+                    <div class="toast-body flex-grow-1"><p>{{ message }}</p></div>
+                    <button type="button" class="toast-close" onclick="this.parentElement.classList.add('hide')">&times;</button>
+                    <div class="toast-progress"></div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endwith %}
+
     <!-- Barra de Navegação (Navbar) -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
@@ -210,14 +255,7 @@
         </div>
     </nav>
 
-    <main class="container" style="margin-top: 120px;">
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                <div class="alert alert-{{ category }}">{{ message }}</div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
+     <main class="container" style="margin-top: 100px; margin-bottom: 40px;">
         {% block content %}{% endblock %}
     </main>
 
@@ -240,22 +278,16 @@
     {% block scripts %}{% endblock %}
 
 
-    <script>
-        // Pequeno script para melhorar a experiência do menu overlay
+     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const navMenu = document.getElementById('navMenu');
-            
             if (navMenu) {
-                // Impede o scroll da página quando o menu está aberto
-                navMenu.addEventListener('show.bs.collapse', function () {
-                    document.body.style.overflow = 'hidden';
-                });
-                
-                // Restaura o scroll quando o menu é fechado
-                navMenu.addEventListener('hide.bs.collapse', function () {
-                    document.body.style.overflow = 'auto';
-                });
+                navMenu.addEventListener('show.bs.collapse', () => document.body.style.overflow = 'hidden');
+                navMenu.addEventListener('hide.bs.collapse', () => document.body.style.overflow = 'auto');
             }
+            document.querySelectorAll('.custom-toast').forEach(toast => {
+                setTimeout(() => toast.classList.add('hide'), 5000);
+            });
         });
     </script>
 </body>
