@@ -13,7 +13,7 @@ app = Flask(__name__)
 def nl2br(s):
     return Markup(s.replace('\n', '<br>\n'))
 
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or 'uma-chave-secreta-muito-dificil-de-adivinhar'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL') or \
     'postgresql://postgres:Gustavo@localhost/rastreabilidade'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
