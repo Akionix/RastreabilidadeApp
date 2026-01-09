@@ -15,7 +15,7 @@ def nl2br(s):
 
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or 'uma-chave-secreta-muito-dificil-de-adivinhar'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL') or \
-    'postgresql://postgres:Gustavo@localhost/rastreabilidade'
+    'postgresql://postgres:2468@localhost/rastreabilidade'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
