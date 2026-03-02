@@ -367,22 +367,24 @@
         cepApiFeedback.textContent = '';
 
         try {
-            const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+            // Trocando ViaCEP por BrasilAPI para maior estabilidade
+            const response = await fetch(`https://brasilapi.com.br/api/cep/v1/${cep}`);
+            
+            if (!response.ok) throw new Error('CEP não encontrado.');
+            
             const data = await response.json();
-
-            if (data.erro) throw new Error('CEP não encontrado.');
             
-            enderecoInput.value = data.logradouro || '';
-            cidadeInput.value = data.localidade || '';
+            // A BrasilAPI retorna 'street' para endereço e 'city' para cidade
+            enderecoInput.value = data.street || '';
+            cidadeInput.value = data.city || '';
             
-            // Força a validação dos campos preenchidos
-            [enderecoInput, cidadeInput].forEach(field => {
-                performValidation(field);
-            });
+            performValidation(enderecoInput);
+            performValidation(cidadeInput);
             form.classList.add('was-validated');
 
         } catch (error) {
-            cepApiFeedback.textContent = error.message;
+            console.error(error);
+            cepApiFeedback.textContent = "Erro ao buscar CEP. Digite manualmente.";
         } finally {
             cepLoader.classList.add('d-none');
             enderecoInput.disabled = false;
